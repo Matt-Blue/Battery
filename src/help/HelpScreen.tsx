@@ -43,11 +43,11 @@ export default function HelpScreen() {
 			</Box>
 			<Box
 				sx={{
-					padding: '1.5rem',
-					margin: '1.5rem',
+					padding: '1rem',
+					margin: '1rem',
 					border: `1px solid ${NEON_GREEN_COLOR}`,
 					width: '100%',
-					borderRadius: '1.5rem',
+					borderRadius: '1rem',
 				}}>
 				<Typography variant='h4' sx={{ color: NEON_GREEN_COLOR }}>
 					Points of Contact
