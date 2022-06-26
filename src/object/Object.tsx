@@ -1,9 +1,4 @@
-import {
-	BACKGROUND_COLOR,
-	NEON_RED_COLOR,
-	NEON_YELLOW_COLOR,
-	TEXT_COLOR,
-} from '../constants';
+import { BACKGROUND_COLOR, NEON_RED_COLOR, TEXT_COLOR } from '../constants';
 import { FULL_BATTERY_PERCENTAGE, LOW_BATTERY_PERCENTAGE } from '../constants';
 
 import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
@@ -23,19 +18,19 @@ export default function Object(props: ObjectT) {
 		props;
 	const [modalOpen, setModalOpen] = useState(false);
 	const hasError = errorMessage != null;
-	const hasBatteryPercentage = batteryPercentage != null;
 	const batteryPercentageNonNull = batteryPercentage ?? 0;
 	const hasLowBattery = batteryPercentageNonNull < LOW_BATTERY_PERCENTAGE;
 	const hasFullBattery = batteryPercentageNonNull > FULL_BATTERY_PERCENTAGE;
+	const hasBatteryPercentage = batteryPercentage != null;
 	const batteryPercentageColor = getObjectStatusColor({
 		red: hasLowBattery,
 		yellow: !hasLowBattery && !hasFullBattery,
 		green: hasFullBattery,
 	});
 	const borderColor = getObjectStatusColor({
-		red: hasError,
-		yellow: isCharging ?? false,
-		green: !hasError && !isCharging,
+		red: hasError || hasLowBattery,
+		yellow: (!hasFullBattery && isCharging) ?? false,
+		green: !hasError && (!isCharging || hasFullBattery),
 	});
 	return (
 		<>
@@ -108,7 +103,7 @@ export default function Object(props: ObjectT) {
 								{name}
 							</Typography>
 							<Typography variant='body2' sx={{ color: TEXT_COLOR }}>
-								{id}
+								ID: {id}
 							</Typography>
 						</Box>
 						<Box
@@ -116,7 +111,9 @@ export default function Object(props: ObjectT) {
 								padding: '0.5rem',
 							}}>
 							{!hasError && isCharging && (
-								<BatteryChargingFullIcon sx={{ color: NEON_YELLOW_COLOR }} />
+								<BatteryChargingFullIcon
+									sx={{ color: batteryPercentageColor }}
+								/>
 							)}
 							{hasError && <ErrorIcon sx={{ color: NEON_RED_COLOR }} />}
 						</Box>
@@ -140,6 +137,21 @@ export default function Object(props: ObjectT) {
 					<Typography variant='h6'>{name}</Typography>
 					<Typography variant='body1'>ID: {id}</Typography>
 					<Typography variant='body1'>{description}</Typography>
+					{isCharging && (
+						<Box
+							sx={{
+								display: 'flex',
+								flexDirection: 'row',
+								alignItems: 'center',
+							}}>
+							<BatteryChargingFullIcon sx={{ color: batteryPercentageColor }} />
+							<Typography
+								sx={{ color: batteryPercentageColor }}
+								variant='body1'>
+								{batteryPercentage}% charged
+							</Typography>
+						</Box>
+					)}
 					{hasError && (
 						<Box
 							sx={{

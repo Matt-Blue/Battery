@@ -4,6 +4,10 @@ This project is an offline server for managing fleets of batteries through a web
 
 ## Available Scripts
 
+### `git push origin main`
+
+Pushes changes to github
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -38,3 +42,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 - Create React App
 - Typescript
+- Material UI
