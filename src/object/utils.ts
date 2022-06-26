@@ -2,7 +2,7 @@ import {
 	NEON_GREEN_COLOR,
 	NEON_RED_COLOR,
 	NEON_YELLOW_COLOR,
-} from '../style/colors';
+} from '../constants';
 
 export function getObjectStatusColor(colorOptions: {
 	red: boolean | null;

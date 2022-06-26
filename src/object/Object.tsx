@@ -3,7 +3,7 @@ import {
 	NEON_RED_COLOR,
 	NEON_YELLOW_COLOR,
 	TEXT_COLOR,
-} from '../style/colors';
+} from '../constants';
 import { FULL_BATTERY_PERCENTAGE, LOW_BATTERY_PERCENTAGE } from '../constants';
 
 import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';

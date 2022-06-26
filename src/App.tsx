@@ -1,6 +1,6 @@
 import { EXAMPLE_ADAPTERS, EXAMPLE_BATTERIES } from './constants';
 
-import { BACKGROUND_COLOR } from './style/colors';
+import { BACKGROUND_COLOR } from './constants';
 import Box from '@mui/material/Box';
 import HelpScreen from './help/HelpScreen';
 import Navbar from './navbar/Navbar';

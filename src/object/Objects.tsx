@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Object from './Object';
 import type { ObjectT } from '../types';
-import { TEXT_COLOR } from '../style/colors';
+import { TEXT_COLOR } from '../constants';
 
 export default function Objects(props: { objects: ObjectT[] }) {
 	return (

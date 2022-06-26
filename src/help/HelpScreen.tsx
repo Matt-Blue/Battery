@@ -1,4 +1,4 @@
-import { NEON_GREEN_COLOR, TEXT_COLOR } from '../style/colors';
+import { NEON_GREEN_COLOR, TEXT_COLOR } from '../constants';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
