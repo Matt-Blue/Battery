@@ -1,0 +1,2 @@
+export const LOW_BATTERY_PERCENTAGE = 25;
+export const FULL_BATTERY_PERCENTAGE = 75;
