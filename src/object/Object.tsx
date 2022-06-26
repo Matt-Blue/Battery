@@ -22,8 +22,8 @@ export default function Object(props: ObjectT) {
 	const { id, name, description, batteryPercentage, errorMessage, isCharging } =
 		props;
 	const [modalOpen, setModalOpen] = useState(false);
-	const hasError = errorMessage !== null;
-	const hasBatteryPercentage = batteryPercentage !== null;
+	const hasError = errorMessage != null;
+	const hasBatteryPercentage = batteryPercentage != null;
 	const batteryPercentageNonNull = batteryPercentage ?? 0;
 	const hasLowBattery = batteryPercentageNonNull < LOW_BATTERY_PERCENTAGE;
 	const hasFullBattery = batteryPercentageNonNull > FULL_BATTERY_PERCENTAGE;
