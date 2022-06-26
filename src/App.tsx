@@ -1,8 +1,9 @@
 import { BACKGROUND_COLOR, TEXT_COLOR } from './common/colors';
 
-import Battery from './battery/Battery';
+import AdapterScreen from './adapter/AdapterScreen';
+import BatteryScreen from './battery/BatteryScreen';
 import Box from '@mui/material/Box';
-import { EXAMPLE_BATTERIES } from './battery/constants';
+import HelpScreen from './help/HelpScreen';
 import Navbar from './navbar/Navbar';
 import type { NavbarOptionT } from './navbar/types';
 import { useState } from 'react';
@@ -20,37 +21,9 @@ function App() {
 				overflowY: 'auto',
 			}}>
 			<Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
-			{activeTab === 'batteries' && (
-				<Box
-					sx={{
-						display: 'flex',
-						flexDirection: 'column',
-						alignItems: 'center',
-						flexGrow: 1,
-					}}>
-					{EXAMPLE_BATTERIES.map((battery) => (
-						<Battery {...battery} />
-					))}
-				</Box>
-			)}
-			{activeTab === 'adapters' && (
-				<Box
-					sx={{
-						height: '5000px',
-						color: TEXT_COLOR,
-					}}>
-					TODO Adapters Screen
-				</Box>
-			)}
-			{activeTab === 'help' && (
-				<Box
-					sx={{
-						height: '5000px',
-						color: TEXT_COLOR,
-					}}>
-					TODO Help Screen
-				</Box>
-			)}
+			{activeTab === 'batteries' && <BatteryScreen />}
+			{activeTab === 'adapters' && <AdapterScreen />}
+			{activeTab === 'help' && <HelpScreen />}
 		</Box>
 	);
 }
