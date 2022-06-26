@@ -1,5 +1,5 @@
 import AdapterScreen from './adapter/AdapterScreen';
-import { BACKGROUND_COLOR } from './common/colors';
+import { BACKGROUND_COLOR } from './style/colors';
 import BatteryScreen from './battery/BatteryScreen';
 import Box from '@mui/material/Box';
 import HelpScreen from './help/HelpScreen';

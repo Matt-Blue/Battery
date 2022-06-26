@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { TEXT_COLOR } from '../common/colors';
+import { TEXT_COLOR } from '../style/colors';
 
 export default function HelpScreen() {
 	return (

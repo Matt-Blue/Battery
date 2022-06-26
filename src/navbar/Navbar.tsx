@@ -1,4 +1,4 @@
-import { BACKGROUND_COLOR, NEON_GREEN_COLOR } from '../common/colors';
+import { BACKGROUND_COLOR, NEON_GREEN_COLOR } from '../style/colors';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';

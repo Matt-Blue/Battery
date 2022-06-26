@@ -1,7 +1,7 @@
-import Adapter from './Adapter';
 import Box from '@mui/material/Box';
 import { EXAMPLE_ADAPTERS } from './constants';
-import { TEXT_COLOR } from '../common/colors';
+import Object from '../object/Object';
+import { TEXT_COLOR } from '../style/colors';
 
 export default function AdapterScreen() {
 	return (
@@ -14,7 +14,7 @@ export default function AdapterScreen() {
 				color: TEXT_COLOR,
 			}}>
 			{EXAMPLE_ADAPTERS.map((adapter) => (
-				<Adapter {...adapter} />
+				<Object {...adapter} />
 			))}
 		</Box>
 	);

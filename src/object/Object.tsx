@@ -1,10 +1,9 @@
 import {
 	BACKGROUND_COLOR,
-	NEON_GREEN_COLOR,
 	NEON_RED_COLOR,
 	NEON_YELLOW_COLOR,
 	TEXT_COLOR,
-} from '../common/colors';
+} from '../style/colors';
 import { FULL_BATTERY_PERCENTAGE, LOW_BATTERY_PERCENTAGE } from './constants';
 
 import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
@@ -25,10 +24,9 @@ export default function Object(props: ObjectT) {
 	const [modalOpen, setModalOpen] = useState(false);
 	const hasError = errorMessage !== null;
 	const hasBatteryPercentage = batteryPercentage !== null;
-	const hasLowBattery =
-		hasBatteryPercentage && batteryPercentage < LOW_BATTERY_PERCENTAGE;
-	const hasFullBattery =
-		hasBatteryPercentage && batteryPercentage > FULL_BATTERY_PERCENTAGE;
+	const batteryPercentageNonNull = batteryPercentage ?? 0;
+	const hasLowBattery = batteryPercentageNonNull < LOW_BATTERY_PERCENTAGE;
+	const hasFullBattery = batteryPercentageNonNull > FULL_BATTERY_PERCENTAGE;
 	const batteryPercentageColor = getObjectStatusColor({
 		red: hasLowBattery,
 		yellow: false,
@@ -36,7 +34,7 @@ export default function Object(props: ObjectT) {
 	});
 	const borderColor = getObjectStatusColor({
 		red: hasError,
-		yellow: isCharging,
+		yellow: isCharging ?? false,
 		green: true,
 	});
 	return (
