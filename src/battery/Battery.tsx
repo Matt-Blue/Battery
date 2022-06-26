@@ -1,11 +1,10 @@
 import {
-	DARK_GREEN,
-	DARK_RED,
-	DARK_YELLOW,
-	WHITE_GREEN,
-	WHITE_RED,
-	WHITE_YELLOW,
-} from '../common/constants';
+	BACKGROUND_COLOR,
+	NEON_GREEN_COLOR,
+	NEON_RED_COLOR,
+	NEON_YELLOW_COLOR,
+	TEXT_COLOR,
+} from '../common/colors';
 import { FULL_BATTERY_PERCENTAGE, LOW_BATTERY_PERCENTAGE } from './constants';
 
 import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
@@ -25,30 +24,29 @@ export default function Battery(props: BatteryT) {
 	const [modalOpen, setModalOpen] = useState(false);
 	// Battery status
 	const hasLowBattery = batteryPercentage < LOW_BATTERY_PERCENTAGE;
-	const hasFullBattery = batteryPercentage < FULL_BATTERY_PERCENTAGE;
+	const hasFullBattery = batteryPercentage > FULL_BATTERY_PERCENTAGE;
 	const batteryColor = hasLowBattery
 		? 'error'
 		: hasFullBattery
 		? 'success'
 		: 'primary';
+	const batteryPercentageColor = hasLowBattery
+		? NEON_RED_COLOR
+		: hasFullBattery
+		? NEON_GREEN_COLOR
+		: NEON_YELLOW_COLOR;
 	// Charging status and errors
 	const hasError = errorMessage !== null;
 	const borderColor = hasError
-		? DARK_RED
+		? NEON_RED_COLOR
 		: isCharging
-		? DARK_YELLOW
-		: DARK_GREEN;
-	const backgroundColor = hasError
-		? WHITE_RED
-		: isCharging
-		? WHITE_YELLOW
-		: WHITE_GREEN;
+		? NEON_YELLOW_COLOR
+		: NEON_GREEN_COLOR;
 	return (
 		<>
 			<CardActionArea
 				sx={{
 					width: '90%',
-					background: backgroundColor,
 					border: `1px solid ${borderColor}`,
 					borderRadius: '1.5rem',
 					margin: '0.5rem',
@@ -56,7 +54,7 @@ export default function Battery(props: BatteryT) {
 				}}>
 				<Card
 					sx={{
-						background: backgroundColor,
+						background: BACKGROUND_COLOR,
 						display: 'flex',
 						flexDirection: 'row',
 						alignItems: 'center',
@@ -69,6 +67,9 @@ export default function Battery(props: BatteryT) {
 								variant='determinate'
 								value={batteryPercentage}
 								color={batteryColor}
+								sx={{
+									color: batteryPercentageColor,
+								}}
 							/>
 							<Box
 								sx={{
@@ -84,7 +85,10 @@ export default function Battery(props: BatteryT) {
 								<Typography
 									variant='caption'
 									component='div'
-									color='text.secondary'>
+									color='text.secondary'
+									sx={{
+										color: TEXT_COLOR,
+									}}>
 									{batteryPercentage}
 								</Typography>
 							</Box>
@@ -104,15 +108,21 @@ export default function Battery(props: BatteryT) {
 								padding: '0.25rem',
 								textAlign: 'left',
 							}}>
-							<Typography variant='body1'>{name}</Typography>
-							<Typography variant='body2'>{id}</Typography>
+							<Typography variant='body1' sx={{ color: TEXT_COLOR }}>
+								{name}
+							</Typography>
+							<Typography variant='body2' sx={{ color: TEXT_COLOR }}>
+								{id}
+							</Typography>
 						</Box>
 						<Box
 							sx={{
 								padding: '0.5rem',
 							}}>
-							{!errorMessage && isCharging && <BatteryChargingFullIcon />}
-							{errorMessage !== null && <ErrorIcon />}
+							{!hasError && isCharging && (
+								<BatteryChargingFullIcon sx={{ color: NEON_YELLOW_COLOR }} />
+							)}
+							{hasError && <ErrorIcon sx={{ color: NEON_RED_COLOR }} />}
 						</Box>
 					</Box>
 				</Card>
@@ -126,18 +136,18 @@ export default function Battery(props: BatteryT) {
 						transform: 'translate(-50%, -50%)',
 						width: 400,
 						bgcolor: 'black',
-						color: 'white',
-						border: '2px solid #000',
+						color: TEXT_COLOR,
+						border: `2px solid ${borderColor}`,
 						boxShadow: 24,
 						p: 4,
 					}}>
 					<Typography variant='h6'>{name}</Typography>
 					<Typography variant='body1'>ID: {id}</Typography>
 					<Typography variant='body1'>{description}</Typography>
-					{errorMessage && (
+					{hasError && (
 						<Box
 							sx={{
-								background: WHITE_RED,
+								background: NEON_RED_COLOR,
 								color: 'black',
 								padding: '1rem',
 							}}>

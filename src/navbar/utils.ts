@@ -4,8 +4,8 @@ export const getNavbarOptionTitle = (option: NavbarOptionT) => {
 	switch (option) {
 		case 'batteries':
 			return 'Batteries';
-		case 'contribute':
-			return 'Contribute';
+		case 'adapters':
+			return 'Adapters';
 		case 'help':
 			return 'Help';
 		default:

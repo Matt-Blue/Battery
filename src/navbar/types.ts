@@ -1,1 +1,1 @@
-export type NavbarOptionT = 'batteries' | 'contribute' | 'help'
+export type NavbarOptionT = 'batteries' | 'adapters' | 'help'

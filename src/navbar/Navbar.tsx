@@ -1,3 +1,5 @@
+import { BACKGROUND_COLOR, NEON_GREEN_COLOR } from '../common/colors';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -15,7 +17,12 @@ export default function Navbar(props: {
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar
 				position='static'
-				style={{ background: '#5afc04', color: 'black', marginBottom: '1rem' }}>
+				style={{
+					borderBottom: `1px solid ${NEON_GREEN_COLOR}`,
+					background: BACKGROUND_COLOR,
+					color: 'black',
+					marginBottom: '1rem',
+				}}>
 				<Toolbar>
 					<Stack direction='row' spacing={1}>
 						<NavbarOption
@@ -24,7 +31,7 @@ export default function Navbar(props: {
 							setActiveTab={setActiveTab}
 						/>
 						<NavbarOption
-							option='contribute'
+							option='adapters'
 							activeTab={activeTab}
 							setActiveTab={setActiveTab}
 						/>
@@ -46,12 +53,20 @@ const NavbarOption = (props: {
 	setActiveTab: React.Dispatch<React.SetStateAction<NavbarOptionT>>;
 }) => {
 	const { option, activeTab, setActiveTab } = props;
-	const buttonVariant = option === activeTab ? 'contained' : 'outlined';
+	const optionIsActive = option === activeTab;
+	const buttonVariant = optionIsActive ? 'contained' : 'outlined';
+	const style = optionIsActive
+		? {
+				paddingRight: '1rem',
+				background: NEON_GREEN_COLOR,
+				color: BACKGROUND_COLOR,
+		  }
+		: { paddingRight: '1rem', color: NEON_GREEN_COLOR };
 	return (
 		<Button
 			variant={buttonVariant}
 			color='inherit'
-			style={{ paddingRight: '1rem' }}
+			style={style}
 			onClick={() => setActiveTab(option)}>
 			{getNavbarOptionTitle(option)}
 		</Button>

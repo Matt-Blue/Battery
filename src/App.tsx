@@ -1,3 +1,5 @@
+import { BACKGROUND_COLOR, TEXT_COLOR } from './common/colors';
+
 import Battery from './battery/Battery';
 import Box from '@mui/material/Box';
 import { EXAMPLE_BATTERIES } from './battery/constants';
@@ -13,7 +15,7 @@ function App() {
 				margin: -1,
 				display: 'flex',
 				flexDirection: 'column',
-				background: 'black',
+				background: BACKGROUND_COLOR,
 				height: '100vh',
 				overflowY: 'auto',
 			}}>
@@ -31,20 +33,20 @@ function App() {
 					))}
 				</Box>
 			)}
-			{activeTab === 'contribute' && (
+			{activeTab === 'adapters' && (
 				<Box
 					sx={{
 						height: '5000px',
-						background: 'green',
+						color: TEXT_COLOR,
 					}}>
-					TODO Contribute Screen
+					TODO Adapters Screen
 				</Box>
 			)}
 			{activeTab === 'help' && (
 				<Box
 					sx={{
 						height: '5000px',
-						background: 'blue',
+						color: TEXT_COLOR,
 					}}>
 					TODO Help Screen
 				</Box>
