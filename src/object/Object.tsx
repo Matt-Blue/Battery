@@ -29,13 +29,13 @@ export default function Object(props: ObjectT) {
 	const hasFullBattery = batteryPercentageNonNull > FULL_BATTERY_PERCENTAGE;
 	const batteryPercentageColor = getObjectStatusColor({
 		red: hasLowBattery,
-		yellow: false,
+		yellow: !hasLowBattery && !hasFullBattery,
 		green: hasFullBattery,
 	});
 	const borderColor = getObjectStatusColor({
 		red: hasError,
 		yellow: isCharging ?? false,
-		green: true,
+		green: !hasError && !isCharging,
 	});
 	return (
 		<>
@@ -146,8 +146,9 @@ export default function Object(props: ObjectT) {
 								background: NEON_RED_COLOR,
 								color: 'black',
 								padding: '1rem',
+								marginTop: '0.5rem',
 							}}>
-							<Typography sx={{ mt: 2 }}>Error: {errorMessage}</Typography>
+							<Typography variant='body1'>Error: {errorMessage}</Typography>
 						</Box>
 					)}
 				</Box>

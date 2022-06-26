@@ -2,7 +2,7 @@ import type { AdapterT } from './types';
 import type { BatteryT } from './types';
 
 export const LOW_BATTERY_PERCENTAGE = 25;
-export const FULL_BATTERY_PERCENTAGE = 75;
+export const FULL_BATTERY_PERCENTAGE = 80;
 
 export const EXAMPLE_ADAPTERS: AdapterT[] = [
 	{

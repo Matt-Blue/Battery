@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import type { NavbarOptionT } from '../types';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
-import { getNavbarOptionTitle } from './utils';
+import capitalize from '@mui/material/utils/capitalize';
 
 export default function Navbar(props: {
 	activeTab: NavbarOptionT;
@@ -17,7 +17,7 @@ export default function Navbar(props: {
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar
 				position='static'
-				style={{
+				sx={{
 					borderBottom: `1px solid ${NEON_GREEN_COLOR}`,
 					background: BACKGROUND_COLOR,
 					color: 'black',
@@ -57,18 +57,19 @@ const NavbarOption = (props: {
 	const buttonVariant = optionIsActive ? 'contained' : 'outlined';
 	const style = optionIsActive
 		? {
-				paddingRight: '1rem',
 				background: NEON_GREEN_COLOR,
 				color: BACKGROUND_COLOR,
 		  }
-		: { paddingRight: '1rem', color: NEON_GREEN_COLOR };
+		: {
+				color: NEON_GREEN_COLOR,
+		  };
 	return (
 		<Button
 			variant={buttonVariant}
 			color='inherit'
-			style={style}
+			sx={{ ...style, paddingRight: '1rem', textTransform: 'capitalize' }}
 			onClick={() => setActiveTab(option)}>
-			{getNavbarOptionTitle(option)}
+			{capitalize(option)}
 		</Button>
 	);
 };
