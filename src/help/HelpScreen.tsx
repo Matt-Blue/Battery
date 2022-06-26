@@ -21,20 +21,33 @@ export default function HelpScreen() {
 					margin: '1rem',
 					border: `1px solid ${NEON_GREEN_COLOR}`,
 					width: '100%',
+					borderRadius: '1rem',
 				}}>
 				<Typography variant='h4' sx={{ color: NEON_GREEN_COLOR }}>
 					Troubleshooting
 				</Typography>
-				<Typography variant='body1' sx={{ color: TEXT_COLOR }}>
-					TODO
+				<Typography variant='body1'>
+					Here are the steps to try to resolve your issue
 				</Typography>
+				<ol>
+					<li>
+						<Typography variant='body1'>Step 1</Typography>
+					</li>
+					<li>
+						<Typography variant='body1'>Step 2</Typography>
+					</li>
+					<li>
+						<Typography variant='body1'>Step 3</Typography>
+					</li>
+				</ol>
 			</Box>
 			<Box
 				sx={{
-					padding: '1rem',
-					margin: '1rem',
+					padding: '1.5rem',
+					margin: '1.5rem',
 					border: `1px solid ${NEON_GREEN_COLOR}`,
 					width: '100%',
+					borderRadius: '1.5rem',
 				}}>
 				<Typography variant='h4' sx={{ color: NEON_GREEN_COLOR }}>
 					Points of Contact

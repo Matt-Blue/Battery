@@ -43,7 +43,7 @@ export default function Object(props: ObjectT) {
 				sx={{
 					width: '90%',
 					border: `1px solid ${borderColor}`,
-					borderRadius: '1.5rem',
+					borderRadius: '1rem',
 					margin: '0.5rem',
 					padding: '0.5rem',
 				}}>
