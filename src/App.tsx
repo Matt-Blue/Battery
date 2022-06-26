@@ -1,21 +1,54 @@
 import Battery from './battery/Battery';
 import Box from '@mui/material/Box';
 import { EXAMPLE_BATTERIES } from './battery/constants';
-import Typography from '@mui/material/Typography';
+import Navbar from './navbar/Navbar';
+import type { NavbarOptionT } from './navbar/types';
+import { useState } from 'react';
 
 function App() {
+	const [activeTab, setActiveTab] = useState<NavbarOptionT>('batteries');
 	return (
 		<Box
 			sx={{
-				width: '100%',
+				margin: -1,
 				display: 'flex',
 				flexDirection: 'column',
-				alignItems: 'center',
+				background: 'black',
+				height: '100vh',
+				overflowY: 'auto',
 			}}>
-			<Typography variant='h4'>Batteries</Typography>
-			{EXAMPLE_BATTERIES.map((battery) => (
-				<Battery {...battery} />
-			))}
+			<Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+			{activeTab === 'batteries' && (
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						flexGrow: 1,
+					}}>
+					{EXAMPLE_BATTERIES.map((battery) => (
+						<Battery {...battery} />
+					))}
+				</Box>
+			)}
+			{activeTab === 'contribute' && (
+				<Box
+					sx={{
+						height: '5000px',
+						background: 'green',
+					}}>
+					TODO Contribute Screen
+				</Box>
+			)}
+			{activeTab === 'help' && (
+				<Box
+					sx={{
+						height: '5000px',
+						background: 'blue',
+					}}>
+					TODO Help Screen
+				</Box>
+			)}
 		</Box>
 	);
 }

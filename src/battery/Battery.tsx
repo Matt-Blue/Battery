@@ -96,6 +96,7 @@ export default function Battery(props: BatteryT) {
 							display: 'flex',
 							flexDirection: 'row',
 							justifyContent: 'space-between',
+							alignItems: 'center',
 						}}>
 						<Box
 							sx={{
@@ -108,7 +109,7 @@ export default function Battery(props: BatteryT) {
 						</Box>
 						<Box
 							sx={{
-								padding: '0.25rem',
+								padding: '0.5rem',
 							}}>
 							{!errorMessage && isCharging && <BatteryChargingFullIcon />}
 							{errorMessage !== null && <ErrorIcon />}
@@ -124,18 +125,24 @@ export default function Battery(props: BatteryT) {
 						left: '50%',
 						transform: 'translate(-50%, -50%)',
 						width: 400,
-						bgcolor: 'background.paper',
+						bgcolor: 'black',
+						color: 'white',
 						border: '2px solid #000',
 						boxShadow: 24,
 						p: 4,
 					}}>
 					<Typography variant='h6'>{name}</Typography>
-					<Typography variant='body1'>{id}</Typography>
+					<Typography variant='body1'>ID: {id}</Typography>
 					<Typography variant='body1'>{description}</Typography>
-					{errorMessage !== null && (
-						<Typography id='modal-modal-description' sx={{ mt: 2 }}>
-							Error: {errorMessage}
-						</Typography>
+					{errorMessage && (
+						<Box
+							sx={{
+								background: WHITE_RED,
+								color: 'black',
+								padding: '1rem',
+							}}>
+							<Typography sx={{ mt: 2 }}>Error: {errorMessage}</Typography>
+						</Box>
 					)}
 				</Box>
 			</Modal>
