@@ -1,4 +1,4 @@
-import type { NavbarOptionT } from './types';
+import type { NavbarOptionT } from '../types';
 
 export const getNavbarOptionTitle = (option: NavbarOptionT) => {
 	switch (option) {

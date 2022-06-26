@@ -4,7 +4,7 @@ import {
 	NEON_YELLOW_COLOR,
 	TEXT_COLOR,
 } from '../style/colors';
-import { FULL_BATTERY_PERCENTAGE, LOW_BATTERY_PERCENTAGE } from './constants';
+import { FULL_BATTERY_PERCENTAGE, LOW_BATTERY_PERCENTAGE } from '../constants';
 
 import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
 import Box from '@mui/material/Box';
@@ -13,7 +13,7 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CircularProgress from '@mui/material/CircularProgress';
 import ErrorIcon from '@mui/icons-material/Error';
 import Modal from '@mui/material/Modal';
-import type { ObjectT } from './types';
+import type { ObjectT } from '../types';
 import Typography from '@mui/material/Typography';
 import { getObjectStatusColor } from './utils';
 import { useState } from 'react';

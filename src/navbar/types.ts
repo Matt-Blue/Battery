@@ -1,1 +1,0 @@
-export type NavbarOptionT = 'batteries' | 'adapters' | 'help'

@@ -1,7 +1,23 @@
+import type { AdapterT } from './types';
 import type { BatteryT } from './types';
 
 export const LOW_BATTERY_PERCENTAGE = 25;
 export const FULL_BATTERY_PERCENTAGE = 75;
+
+export const EXAMPLE_ADAPTERS: AdapterT[] = [
+	{
+		id: '1',
+		name: 'Adapter 1',
+		description: 'asdasdasd',
+		errorMessage: null,
+	},
+	{
+		id: '2',
+		name: 'Adapter 2',
+		description: 'asdasdas2',
+		errorMessage: 'Adapter is not connected',
+	},
+];
 
 export const EXAMPLE_BATTERIES: BatteryT[] = [
 	{

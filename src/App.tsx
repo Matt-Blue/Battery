@@ -1,10 +1,11 @@
-import AdapterScreen from './adapter/AdapterScreen';
+import { EXAMPLE_ADAPTERS, EXAMPLE_BATTERIES } from './constants';
+
 import { BACKGROUND_COLOR } from './style/colors';
-import BatteryScreen from './battery/BatteryScreen';
 import Box from '@mui/material/Box';
 import HelpScreen from './help/HelpScreen';
 import Navbar from './navbar/Navbar';
-import type { NavbarOptionT } from './navbar/types';
+import type { NavbarOptionT } from './types';
+import Objects from './object/Objects';
 import { useState } from 'react';
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
 				overflowY: 'auto',
 			}}>
 			<Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
-			{activeTab === 'batteries' && <BatteryScreen />}
-			{activeTab === 'adapters' && <AdapterScreen />}
+			{activeTab === 'batteries' && <Objects objects={EXAMPLE_BATTERIES} />}
+			{activeTab === 'adapters' && <Objects objects={EXAMPLE_ADAPTERS} />}
 			{activeTab === 'help' && <HelpScreen />}
 		</Box>
 	);

@@ -3,7 +3,7 @@ import { BACKGROUND_COLOR, NEON_GREEN_COLOR } from '../style/colors';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import type { NavbarOptionT } from './types';
+import type { NavbarOptionT } from '../types';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import { getNavbarOptionTitle } from './utils';

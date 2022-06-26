@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box';
-import { EXAMPLE_ADAPTERS } from './constants';
-import Object from '../object/Object';
+import Object from './Object';
+import type { ObjectT } from '../types';
 import { TEXT_COLOR } from '../style/colors';
 
-export default function AdapterScreen() {
+export default function Objects(props: { objects: ObjectT[] }) {
 	return (
 		<Box
 			sx={{
@@ -13,8 +13,8 @@ export default function AdapterScreen() {
 				flexGrow: 1,
 				color: TEXT_COLOR,
 			}}>
-			{EXAMPLE_ADAPTERS.map((adapter) => (
-				<Object {...adapter} />
+			{props.objects.map((object) => (
+				<Object {...object} />
 			))}
 		</Box>
 	);
